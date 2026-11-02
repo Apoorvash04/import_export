@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export function SiteHeader({ solid = false }: { solid?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,8 +13,7 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
   return (
     <header className={`site-header${solid ? " site-header--solid" : ""}`}>
       <a className="brand" href="/" aria-label="MEGH home" onClick={closeMenu}>
-        <span className="brand-cloud"><span>MEGH</span><small>FRESH &amp; HEALTHY</small></span>
-        <span className="brand-caption">OVERSEAS PRIVATE LTD.</span>
+        <Image src="/assets/megh-logo.png" alt="MEGH Overseas Private Limited — Fresh & Healthy" width={1008} height={672} priority />
       </a>
       <nav id="site-navigation" className={`nav-links${menuOpen ? " open" : ""}`} aria-label="Main navigation">
         <a href="/" onClick={closeMenu}>Home</a>
@@ -33,3 +33,4 @@ export function SiteHeader({ solid = false }: { solid?: boolean }) {
     </header>
   );
 }
+
